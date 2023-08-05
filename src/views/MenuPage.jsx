@@ -1,5 +1,9 @@
+import { Header } from "../components/Header/Header"
+
 export const MenuPage = () => {
     return (
-        <div>MenuPage</div>
+        <>
+            <Header title='Carta'/>
+        </>
     )
 }
