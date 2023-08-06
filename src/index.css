@@ -1,6 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Signika+Negative&display=swap');
 
+:root {
+    --pink400: #fec5f2;
+    --aqua400: #32e1f1;
+    --yellow400: #F6E6C2;
+    --brown400: #64472E;
+}
+
 div {
-    background-color: #F6E6C2;
+    background-color: var(--pink400);
     font-family: 'Signika Negative', sans-serif;
+    color: var(--brown400);
+}
+
+/* RESPONSIVE FONT SIZES */
+.resp-title {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Chelsea Market', cursive;
+}
+
+.resp-p {
+    font-size: 28px;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1200px) {
+    .resp-title {
+        font-size: 30px;
+    }
+
+    .resp-p {
+        font-size: 20px;
+    }
 }
