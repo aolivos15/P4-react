@@ -4,10 +4,10 @@ import jumbotron_bg from '../../assets/img/jumbotron-bg.jpg';
 export const Jumbotron = () => {
   return (
     <>
-      <div className="container">
+      <div className="container mb-4">
         <div className="row">
           <div className="col-md-7">
-              <img className="img-fluid rounded" src={jumbotron_bg} alt="Cupcakes verde menta sobre una mesa rosada" />
+              <img className="img-fluid rounded-custom" src={jumbotron_bg} alt="Cupcakes verde menta sobre una mesa rosada" />
           </div>
           <div className="col-md-5 p-5">
             <h2 className='resp-title mb-4'>Nubes de Azúcar</h2>

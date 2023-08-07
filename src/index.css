@@ -3,6 +3,7 @@
 :root {
     --pink400: #fec5f2;
     --aqua400: #32e1f1;
+    --yellow300: #fdf4de;
     --yellow400: #F6E6C2;
     --brown400: #64472E;
 }
@@ -11,6 +12,26 @@ div {
     background-color: var(--pink400);
     font-family: 'Signika Negative', sans-serif;
     color: var(--brown400);
+}
+
+.bg-aqua {
+    background-color: var(--aqua400);
+}
+
+.bg-yellow {
+    background-color: var(--yellow400);
+}
+
+.bg-light-yellow {
+    background-color: var(--yellow300);
+}
+
+.rounded-custom {
+    border-radius: 60px;
+}
+
+.dash-border {
+    border: var(--brown400) dashed 6px;
 }
 
 /* RESPONSIVE FONT SIZES */
