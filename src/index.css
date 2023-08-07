@@ -9,9 +9,12 @@
 }
 
 div {
-    background-color: var(--pink400);
     font-family: 'Signika Negative', sans-serif;
     color: var(--brown400);
+}
+
+.bg-pink {
+    background-color: var(--pink400);
 }
 
 .bg-aqua {
