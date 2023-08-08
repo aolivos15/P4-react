@@ -41,19 +41,17 @@ export const ContactForm = () => {
 
   return (
     <>
-      <div className="container mb-4">
+      <div className="container mb-5">
         <div className="row">
           <div className="col-sm-12 bg-yellow p-5 dash-border rounded-custom">
             {/* CONTACT TEXT */}
-            <div className="row bg-yellow mb-4">
-              <h2 className="resp-title mb-4">Contacto</h2>
-              <p className="resp-p mb-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam labore consectetur ut quod voluptatibus, omnis impedit?</p>
-              <p className="resp-p">Teléfono: +56 9 1234 5678</p>
-              <p className="resp-p">Email: contacto@nubesdeazucar.cl</p>
+            <div className="row bg-yellow mb-4 contact-text">
+              <h2 className="resp-title mb-4 text-center">Contacto</h2>
+              <p className="resp-p mb-4">¿Tienes alguna pregunta, sugerencia o comentario? Escríbenos y nos pondremos en contacto contigo a la brevedad.</p>
             </div>
             {/* CONTACT FORM */}
             <div className="row bg-yellow">
-              <div className="col bg-aqua dash-border rounded-custom p-5 contact-form">
+              <div className="col bg-aqua dash-border rounded-custom p-5 contact-form fs-5">
                 {/* FORM START */}
                 <form onSubmit={onSubmit}>
                   <div className="bg-aqua mb-3">
