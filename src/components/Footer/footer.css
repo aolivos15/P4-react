@@ -1,0 +1,20 @@
+.footer a {
+  color: var(--aqua500);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer a:hover {
+  color: var(--aqua400);
+}
+
+.footer-icons {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .footer-icons, .footer-text {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
