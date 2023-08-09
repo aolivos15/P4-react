@@ -1,21 +1,42 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../config/firebase'
+import { TimeButton } from '../TimeButton/TimeButton';
 import './bookingTimeSelector.css';
 
-export const BookingTimeSelector = () => {
+export const BookingTimeSelector = ({ date }) => {
 
+  const [ time, setTime ] = useState('');
   const [ bookings, setBookings ] = useState([]);
 
   // Using database collection 'bookings'
-  const bookingsCollectionRef = collection(db, 'bookings');
+  const bookingCollectionRef = collection(db, 'bookings');
 
-  // Function to get bookings from database
+  // Function to get all bookings from database
   const getBookings = async () => {
-    const data = await getDocs(bookingsCollectionRef);
+    const data = await getDocs(bookingCollectionRef);
+    //console.log(data);
     setBookings(
       data.docs.map(doc => ({...doc.data(), id: doc.id}))
     );
+  }
+
+  // Function to hide buttons for times already booked
+  const hideBookedTimes = () => {
+    // if (id == )
+  }
+
+  // Execute getBookings only one time, when page loads
+  useEffect( () => {
+    getBookings();
+  }, []);
+
+  // Function to change selected time when the user clicks a time button
+  const handleClick = (event) => {
+    event.preventDefault();
+    setTime(event.target.id);
+    console.log(bookings);
+    console.log(`Recibí la fecha desde el calendario: ${date}`);
   }
 
   return (
@@ -26,28 +47,28 @@ export const BookingTimeSelector = () => {
             <hr />
             <h3 className="my-5">Paso 2: Elige la hora en que quieres reservar</h3>
             <div className="mb-5">
-              <button id="9:00" className="btn time-button">9:00</button>
-              <button id="9:30" className="btn time-button">9:30</button>
-              <button id="10:00" className="btn time-button">10:00</button>
-              <button id="10:30" className="btn time-button">10:30</button>
-              <button id="11:00" className="btn time-button">11:00</button>
-              <button id="11:30" className="btn time-button">11:30</button>
-              <button id="12:00" className="btn time-button">12:00</button>
-              <button id="12:30" className="btn time-button">12:30</button>
-              <button id="13:00" className="btn time-button">13:00</button>
-              <button id="13:30" className="btn time-button">13:30</button>
-              <button id="16:00" className="btn time-button">16:00</button>
-              <button id="16:30" className="btn time-button">16:30</button>
-              <button id="17:00" className="btn time-button">17:00</button>
-              <button id="17:30" className="btn time-button">17:30</button>
-              <button id="18:00" className="btn time-button">18:00</button>
-              <button id="18:30" className="btn time-button">18:30</button>
-              <button id="19:00" className="btn time-button">19:00</button>
-              <button id="19:30" className="btn time-button">19:30</button>
-              <button id="20:00" className="btn time-button">20:00</button>
-              <button id="20:30" className="btn time-button">20:30</button>
+              <TimeButton buttonTime='9:00' onClick={handleClick} />
+              <TimeButton buttonTime='9:30' onClick={handleClick} />
+              <TimeButton buttonTime='10:00' onClick={handleClick} />
+              <TimeButton buttonTime='10:30' onClick={handleClick} />
+              <TimeButton buttonTime='11:00' onClick={handleClick} />
+              <TimeButton buttonTime='11:30' onClick={handleClick} />
+              <TimeButton buttonTime='12:00' onClick={handleClick} />
+              <TimeButton buttonTime='12:30' onClick={handleClick} />
+              <TimeButton buttonTime='13:00' onClick={handleClick} />
+              <TimeButton buttonTime='13:30' onClick={handleClick} />
+              <TimeButton buttonTime='16:00' onClick={handleClick} />
+              <TimeButton buttonTime='16:30' onClick={handleClick} />
+              <TimeButton buttonTime='17:00' onClick={handleClick} />
+              <TimeButton buttonTime='17:30' onClick={handleClick} />
+              <TimeButton buttonTime='18:00' onClick={handleClick} />
+              <TimeButton buttonTime='18:30' onClick={handleClick} />
+              <TimeButton buttonTime='19:00' onClick={handleClick} />
+              <TimeButton buttonTime='19:30' onClick={handleClick} />
+              <TimeButton buttonTime='20:00' onClick={handleClick} />
+              <TimeButton buttonTime='20:30' onClick={handleClick} />
             </div>
-            <p className="text-center resp-p"><b className="me-2">Hora seleccionada: </b>{''}{}</p>
+            <p className="text-center resp-p"><b className="me-2">Hora seleccionada: </b>{time}</p>
           </div>
         </div>
       </div>

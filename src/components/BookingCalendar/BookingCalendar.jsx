@@ -1,10 +1,7 @@
-import { useState } from "react";
 import Calendar from "react-calendar";
 import './bookingCalendar.css';
 
-export const BookingCalendar = () => {
-
-  const [date, setDate] = useState(new Date());
+export const BookingCalendar = ({ date, onSelectDate }) => {
 
   return (
     <>
@@ -13,7 +10,7 @@ export const BookingCalendar = () => {
           <div className="col text-center">
             <h3 className="my-5">Paso 1: Elige el día en que quieres reservar</h3>
             <div className="mb-5">
-              <Calendar onChange={setDate} value={date} />
+              <Calendar onChange={onSelectDate} value={date} />
             </div>
             <p className="text-center resp-p"><b className="me-2">Fecha seleccionada: </b>{''}{date.toLocaleDateString()}</p>
           </div>
