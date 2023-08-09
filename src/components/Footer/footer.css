@@ -1,11 +1,11 @@
 .footer a {
-  color: var(--aqua500);
+  color: var(--aqua600);
   text-decoration: none;
   transition: 0.3s;
 }
 
 .footer a:hover {
-  color: var(--aqua400);
+  color: var(--aqua500);
 }
 
 .footer-icons {
