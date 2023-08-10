@@ -28,6 +28,18 @@ export const ContactForm = () => {
   const onSubmit = async (event) => {
     // Prevent the form from reloading the page
     event.preventDefault();
+
+    // Stop the function if the user has not filled all of the form fields
+    if (!name || !email || !phone || !message) {
+      BookingSwal.fire({
+        icon: 'error',
+        iconColor: '#32e1f1',
+        color: '#64472E',
+        titleText: 'Por favor rellene todos los campos.',
+      });
+      return;
+    }
+
     // Store form contents into database
     await addDoc( messageCollectionRef, { name, email, phone, message } );
     // Display alert
