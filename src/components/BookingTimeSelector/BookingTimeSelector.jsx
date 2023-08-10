@@ -4,9 +4,9 @@ import { db } from '../../config/firebase'
 import { TimeButton } from '../TimeButton/TimeButton';
 import './bookingTimeSelector.css';
 
-export const BookingTimeSelector = ({ date }) => {
+export const BookingTimeSelector = ({ date, time, onSelectTime }) => {
 
-  const [ time, setTime ] = useState('');
+  //const [ time, setTime ] = useState('');
 
   // These are all the available time blocks on a normal day
   const initialTimeBlocksState = [ '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00' ];
@@ -26,7 +26,6 @@ export const BookingTimeSelector = ({ date }) => {
       for (const booking in dateDoc.data()) {
         // Get the time of the booking we are currently in
         const bookedTime = dateDoc.data()[booking].time;
-        console.log(`Booked time: ${bookedTime}`);
 
         // Find the index of the booked time in the available time blocks array
         const index = available.findIndex(timeBlock => timeBlock === bookedTime);
@@ -65,7 +64,7 @@ export const BookingTimeSelector = ({ date }) => {
   // Change the selected time when the user clicks a time block button
   const handleClick = (event) => {
     event.preventDefault();
-    setTime(event.target.id);
+    onSelectTime(event.target.id);
   }
 
   return (
