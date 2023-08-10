@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../config/firebase'
 import { TimeButton } from '../TimeButton/TimeButton';
 import './bookingTimeSelector.css';
@@ -7,36 +7,65 @@ import './bookingTimeSelector.css';
 export const BookingTimeSelector = ({ date }) => {
 
   const [ time, setTime ] = useState('');
-  const [ bookings, setBookings ] = useState([]);
 
-  // Using database collection 'bookings'
-  const bookingCollectionRef = collection(db, 'bookings');
+  // These are all the available time blocks on a normal day
+  const initialTimeBlocksState = [ '9:00', '9:30', '10:00', '10:30', '11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00' ];
+  const [ availableTimeBlocks, setAvailableTimeBlocks ] = useState(initialTimeBlocksState);
 
-  // Function to get all bookings from database
-  const getBookings = async () => {
-    const data = await getDocs(bookingCollectionRef);
-    //console.log(data);
-    setBookings(
-      data.docs.map(doc => ({...doc.data(), id: doc.id}))
-    );
+  // Check the database for already booked time blocks on the selected date and hide all the time block buttons corresponding to booked times
+  const removeUnavailableBlocks = async () => {
+
+    try {
+      // Get the document for the selected date from the database
+      const dateDoc = await getDoc(doc(db, 'bookings', date));
+
+      // Create a copy of the initial state of the available time blocks array
+      let available = [...initialTimeBlocksState];
+
+      // Loop through bookings in the selected date document
+      for (const booking in dateDoc.data()) {
+        // Get the time of the booking we are currently in
+        const bookedTime = dateDoc.data()[booking].time;
+        console.log(`Booked time: ${bookedTime}`);
+
+        // Find the index of the booked time in the available time blocks array
+        const index = available.findIndex(timeBlock => timeBlock === bookedTime);
+
+        // If the index is found, remove the booked time block from the array
+        if (index !== -1) {
+          available.splice(index, 1);
+        }
+      }
+      // Update the state with the new array of available time blocks
+      setAvailableTimeBlocks(available);
+    } catch (error) {
+      console.error(`Error al obtener los bloques de tiempo disponibles: ${error}`);
+    }
+
   }
 
-  // Function to hide buttons for times already booked
-  const hideBookedTimes = () => {
-    // if (id == )
-  }
-
-  // Execute getBookings only one time, when page loads
+  // Execute removeUnavailableBlocks every time the user selects a date
   useEffect( () => {
-    getBookings();
-  }, []);
+    removeUnavailableBlocks();
+  }, [date]);
 
-  // Function to change selected time when the user clicks a time button
+  // Display all available time block buttons in the page
+  const displayAvailableTimeBlocks = () => {
+    // Array to store the time button components and return them at the end
+    const timeBlockElements = [];
+
+    // Loop through the available time blocks and create a time block button for each of them. Store these time button in the timeBlockElements array
+    for (const timeBlock of availableTimeBlocks) {
+      timeBlockElements.push(<TimeButton key={timeBlock} buttonTime={timeBlock} onClick={handleClick} />);
+    }
+
+    return timeBlockElements;
+  }
+
+  // Change the selected time when the user clicks a time block button
   const handleClick = (event) => {
     event.preventDefault();
     setTime(event.target.id);
-    console.log(bookings);
-    console.log(`Recibí la fecha desde el calendario: ${date}`);
   }
 
   return (
@@ -45,28 +74,11 @@ export const BookingTimeSelector = ({ date }) => {
         <div className="row">
           <div className="col text-center m-4">
             <hr />
-            <h3 className="my-5">Paso 2: Elige la hora en que quieres reservar</h3>
+            <h3 className="my-5">Paso 2: Elige la hora en que quieres reservar entre los bloques disponibles</h3>
             <div className="mb-5">
-              <TimeButton buttonTime='9:00' onClick={handleClick} />
-              <TimeButton buttonTime='9:30' onClick={handleClick} />
-              <TimeButton buttonTime='10:00' onClick={handleClick} />
-              <TimeButton buttonTime='10:30' onClick={handleClick} />
-              <TimeButton buttonTime='11:00' onClick={handleClick} />
-              <TimeButton buttonTime='11:30' onClick={handleClick} />
-              <TimeButton buttonTime='12:00' onClick={handleClick} />
-              <TimeButton buttonTime='12:30' onClick={handleClick} />
-              <TimeButton buttonTime='13:00' onClick={handleClick} />
-              <TimeButton buttonTime='13:30' onClick={handleClick} />
-              <TimeButton buttonTime='16:00' onClick={handleClick} />
-              <TimeButton buttonTime='16:30' onClick={handleClick} />
-              <TimeButton buttonTime='17:00' onClick={handleClick} />
-              <TimeButton buttonTime='17:30' onClick={handleClick} />
-              <TimeButton buttonTime='18:00' onClick={handleClick} />
-              <TimeButton buttonTime='18:30' onClick={handleClick} />
-              <TimeButton buttonTime='19:00' onClick={handleClick} />
-              <TimeButton buttonTime='19:30' onClick={handleClick} />
-              <TimeButton buttonTime='20:00' onClick={handleClick} />
-              <TimeButton buttonTime='20:30' onClick={handleClick} />
+              {
+                displayAvailableTimeBlocks()
+              }
             </div>
             <p className="text-center resp-p"><b className="me-2">Hora seleccionada: </b>{time}</p>
           </div>
