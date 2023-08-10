@@ -1,4 +1,4 @@
-import { doc, setDoc } from '@firebase/firestore';
+import { doc, setDoc, getDoc } from '@firebase/firestore';
 import { useState } from 'react';
 import { db } from '../../config/firebase'
 import withReactContent from 'sweetalert2-react-content';
@@ -39,8 +39,15 @@ export const BookingForm = ({ date, time }) => {
     // Create an object with all the booking info
     const booking = { [timeString]: { name, email, phone, people, time } };
 
-    // Add a new document with the selected date as an ID, and the booking info as the content
-    await setDoc(doc(db, 'bookings', date), booking);
+    // Check if the document for the selected date already exists
+    const document = await getDoc(doc(db, 'bookings', date));
+    if (!document.exists()) {
+      // Add a new document with the selected date as an ID, and the booking info as the content
+      await setDoc(doc(db, 'bookings', date), booking);
+    } else {
+      // Add another map for the selected time to the document
+      await setDoc(doc(db, 'bookings', date), booking, {merge: true});
+    }
 
     // Display success alert
     BookingSwal.fire({
