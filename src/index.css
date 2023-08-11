@@ -8,6 +8,7 @@
     --aqua600: #25b9b7;
     --yellow300: #fdf4de;
     --yellow400: #F6E6C2;
+    --brown300: #866e58;
     --brown400: #64472E;
 }
 
@@ -37,7 +38,7 @@ div {
 }
 
 .dash-border {
-    border: var(--brown400) dashed 6px;
+    border: var(--brown300) dashed 6px;
 }
 
 /* RESPONSIVE FONT SIZES */

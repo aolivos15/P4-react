@@ -54,8 +54,8 @@ export const ContactForm = () => {
   return (
     <>
       <div className="container mb-5">
-        <div className="row">
-          <div className="col-sm-12 bg-yellow p-5 dash-border rounded-custom">
+        <div className="row justify-content-center">
+          <div className="col-lg-8 bg-yellow p-5 dash-border rounded-custom">
             {/* CONTACT TEXT */}
             <div className="row bg-yellow mb-4 contact-text">
               <h2 className="resp-title mb-4 text-center">Contacto</h2>
@@ -63,7 +63,7 @@ export const ContactForm = () => {
             </div>
             {/* CONTACT FORM */}
             <div className="row bg-yellow">
-              <div className="col bg-aqua dash-border rounded-custom p-5 contact-form fs-5">
+              <div className="col-lg-8 bg-aqua dash-border rounded-custom p-5 contact-form fs-5">
                 {/* FORM START */}
                 <form onSubmit={onSubmit}>
                   <div className="bg-aqua mb-3">
@@ -95,14 +95,15 @@ export const ContactForm = () => {
                   </div>
                   <div className="bg-aqua mb-3">
                     <label className="form-label">Mensaje</label>
-                    <input
+                    <textarea
                       type="text"
                       className="form-control"
+                      rows="4"
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                     />
                   </div>
-                  <div className="bg-aqua text-center mt-5">
+                  <div className="bg-aqua text-center mt-4">
                     <button type='submit' className="btn contact-btn">Enviar</button>
                   </div>
                 </form>
