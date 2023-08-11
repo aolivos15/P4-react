@@ -6,7 +6,7 @@ import { Footer } from "../components/Footer/Footer"
 export const HomePage = () => {
     return (
         <>
-            <Header title='Inicio'/>
+            {/* <Header title='Inicio'/> */}
             <Jumbotron />
             <ContactForm />
             <Footer />
