@@ -1,0 +1,22 @@
+.navbar-img {
+  height: 10vw;
+  max-height: 120px;
+}
+
+.nav-link:hover {
+  color: var(--pink600);
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 992px) {
+  .navbar-img {
+    height: 18vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-gap {
+    gap: 30px;
+  }
+}
