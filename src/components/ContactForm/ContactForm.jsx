@@ -58,52 +58,55 @@ export const ContactForm = () => {
           <div className="col-lg-8 bg-yellow p-5 dash-border rounded-custom">
             {/* CONTACT TEXT */}
             <div className="row bg-yellow mb-4 contact-text">
-              <h2 className="resp-title mb-4 text-center">Contacto</h2>
-              <p className="resp-p mb-4">¿Tienes alguna pregunta, sugerencia o comentario? Escríbenos y nos pondremos en contacto contigo a la brevedad.</p>
+              <h2 className="resp-title text-center">Contacto</h2>
             </div>
             {/* CONTACT FORM */}
             <div className="row bg-yellow">
-              <div className="col-lg-8 bg-aqua dash-border rounded-custom p-5 contact-form fs-5">
+              <div className="col-lg-11 bg-aqua dash-border rounded-custom p-5 contact-form fs-5">
                 {/* FORM START */}
                 <form onSubmit={onSubmit}>
                   <div className="bg-aqua mb-3">
-                    <label className="form-label">Nombre</label>
+                    {/* <label className="form-label">Nombre</label> */}
                     <input
                       type="text"
                       className="form-control"
+                      placeholder='Nombre'
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
                   <div className="bg-aqua mb-3">
-                    <label className="form-label">Email</label>
+                    {/* <label className="form-label">Email</label> */}
                     <input
                       type="text"
                       className="form-control"
+                      placeholder='Correo electrónico'
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className="bg-aqua mb-3">
-                    <label className="form-label">Teléfono</label>
+                    {/* <label className="form-label">Teléfono</label> */}
                     <input
                       type="text"
                       className="form-control"
+                      placeholder='Teléfono'
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                     />
                   </div>
                   <div className="bg-aqua mb-3">
-                    <label className="form-label">Mensaje</label>
+                    {/* <label className="form-label">Mensaje</label> */}
                     <textarea
                       type="text"
                       className="form-control"
+                      placeholder='Escribe aquí tu mensaje...'
                       rows="4"
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                     />
                   </div>
-                  <div className="bg-aqua text-center mt-4">
+                  <div className="bg-aqua text-center">
                     <button type='submit' className="btn contact-btn">Enviar</button>
                   </div>
                 </form>
