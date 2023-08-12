@@ -3,7 +3,7 @@ import './footer.css';
 export const Footer = () => {
   return (
     <>
-      <div className="container-fluid footer fs-5 bg-aqua">
+      <div className="container-fluid footer fs-6 bg-aqua">
         <hr />
         {/* ICONS */}
         <div className="row mx-4">
@@ -22,14 +22,15 @@ export const Footer = () => {
           <div className="col-lg-6 col-md-8 text-center">
             <p><i className="fa-solid fa-location-dot me-3"></i>Las Abejas 1234, Talca, Región del Maule, Chile</p>
             <p><i className="fa-solid fa-phone me-3"></i>+56 9 1234 5678</p>
-            <p><i className="fa-solid fa-envelope me-3"></i>contacto@nubesdeazucar.cl</p>
+            <p><i className="fa-solid fa-envelope me-3"></i>contacto@dulcesmigajas.cl</p>
           </div>
         </div>
         <hr />
         {/* CREDITS */}
         <div className="row text-center mt-4">
-          <p>2023 © Nubes de Azúcar. Página ficticia para fines académicos.</p>
-          <p className='mb-4'>~ Desarrollada por <a target="_blank" rel="noopener noreferrer" href="https://github.com/aolivos15/">Andrea Olivos</a> ~</p>
+          <p>2023 © Dulces Migajas. Página ficticia para fines académicos.</p>
+          <p>~ Desarrollada por <a target="_blank" rel="noopener noreferrer" href="https://github.com/aolivos15/">Andrea Olivos</a> ~</p>
+          <p className='mb-4'>~ Imágenes de <a target="_blank" rel="noopener noreferrer" href="https://pixabay.com/">Pixabay</a>, fondo de Ilya en <a href="https://www.toptal.com/designers/subtlepatterns/food/">Toptal</a> ~</p>
         </div>
       </div>
     </>
