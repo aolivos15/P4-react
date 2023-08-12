@@ -35,7 +35,7 @@ div {
 }
 
 .bg-pattern {
-    background-image: url("src/assets/img/bg-pattern.png");
+    background-image: url("../src/assets/img/bg_pattern.png");
 }
 
 .rounded-custom {
