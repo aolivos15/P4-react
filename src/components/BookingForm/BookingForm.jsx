@@ -129,10 +129,10 @@ export const BookingForm = ({ date, time }) => {
             <h3 className="text-center my-5">Paso 3: Ingresa tus datos para hacer tu reservación</h3>
             {/* CONTACT FORM */}
             <div className="row mb-5">
-              <div className="col bg-aqua dash-border rounded-custom p-5 booking-form fs-5">
+              <div className="col bg-yellow dash-border rounded-custom p-5 booking-form fs-5">
                 {/* FORM START */}
                 <form onSubmit={onSubmit}>
-                  <div className="bg-aqua mb-3">
+                  <div className="bg-yellow mb-3">
                     <label className="form-label">Nombre</label>
                     <input
                       type="text"
@@ -141,7 +141,7 @@ export const BookingForm = ({ date, time }) => {
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
-                  <div className="bg-aqua mb-3">
+                  <div className="bg-yellow mb-3">
                     <label className="form-label">Email</label>
                     <input
                       type="email"
@@ -150,7 +150,7 @@ export const BookingForm = ({ date, time }) => {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
-                  <div className="bg-aqua mb-3">
+                  <div className="bg-yellow mb-3">
                     <label className="form-label">Teléfono</label>
                     <input
                       type="text"
@@ -159,7 +159,7 @@ export const BookingForm = ({ date, time }) => {
                       onChange={(e) => setPhone(e.target.value)}
                     />
                   </div>
-                  <div className="bg-aqua mb-3">
+                  <div className="bg-yellow mb-3">
                     <label className="form-label">Cantidad de personas</label>
                     <input
                       type="number"
@@ -168,7 +168,7 @@ export const BookingForm = ({ date, time }) => {
                       onChange={(e) => setPeople(e.target.value)}
                     />
                   </div>
-                  <div className="bg-aqua text-center mt-5">
+                  <div className="bg-yellow text-center mt-5">
                     <button type='submit' className="btn booking-btn">Reservar una mesa</button>
                   </div>
                 </form>
