@@ -3,8 +3,8 @@ import './footer.css';
 export const Footer = () => {
   return (
     <>
-      <hr />
-      <div className="container footer fs-5">
+      <div className="container-fluid footer fs-5 bg-aqua">
+        <hr />
         {/* ICONS */}
         <div className="row mx-4">
           <div className='col-md-8 footer-text'>

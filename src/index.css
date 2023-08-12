@@ -2,6 +2,7 @@
 
 :root {
     --pink400: #fec5f2;
+    --pink500: #f59be1;
     --pink600: #d66dbf;
     --aqua400: #93ebe9;
     --aqua500: #75d6d5;
@@ -33,12 +34,16 @@ div {
     background-color: var(--yellow300);
 }
 
+.bg-pattern {
+    background-image: url("src/assets/img/bg-pattern.png");
+}
+
 .rounded-custom {
     border-radius: 60px;
 }
 
 .dash-border {
-    border: var(--brown300) dashed 6px;
+    border: var(--brown300) dashed 4px;
 }
 
 /* RESPONSIVE FONT SIZES */
