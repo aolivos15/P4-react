@@ -1,0 +1,19 @@
+.product-card {
+  margin-bottom: 30px;
+  border-radius: 20px;
+  background-color: var(--pink400);
+  border: dashed 4px var(--brown400);
+  max-width: 80%;
+  margin: auto;
+}
+
+.card-img {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.card-title {
+  text-align: center;
+  color: var(--brown400);
+  font-weight: bold;
+}
