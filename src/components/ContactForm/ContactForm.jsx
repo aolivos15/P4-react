@@ -24,6 +24,14 @@ export const ContactForm = () => {
   // Using database collection 'contact'
   const messageCollectionRef = collection(db, 'messages');
 
+  // Function to clear the form after a message is stored in the database
+  const clearForm = () => {
+    setName('');
+    setEmail('');
+    setPhone('');
+    setMessage('');
+  }
+
   // When the user clicks on "submit" button, store the contents of the form into the database
   const onSubmit = async (event) => {
     // Prevent the form from reloading the page
@@ -49,6 +57,8 @@ export const ContactForm = () => {
       color: '#64472E',
       titleText: 'Su mensaje ha sido enviado.',
     });
+
+    clearForm();
   }
 
   return (
