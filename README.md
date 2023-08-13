@@ -6,8 +6,8 @@ This project is a web app for a ficticious coffee shop called "Dulces Migajas", 
 
 ## Visuals
 
-![Screenshot](assets/img/screenshot1.png)
-![Screenshot](assets/img/screenshot2.png)
+![Screenshot](src/assets/img/screenshot1.png)
+![Screenshot](src/assets/img/screenshot2.png)
 
 ## Starting 🚀
 
