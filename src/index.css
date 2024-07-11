@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Signika+Negative&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Lily+Script+One&family=Signika+Negative&display=swap');
 
 :root {
     --pink400: #fec5f2;
@@ -16,6 +16,10 @@
 div {
     font-family: 'Signika Negative', sans-serif;
     color: var(--brown400);
+}
+
+h1 {
+    font-family: 'Lily Script One', sans-serif;
 }
 
 .bg-pink {
